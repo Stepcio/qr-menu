@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-export default function Home() {
+export default function Page() {
   return (
     <main className='h-full w-full bg-white flex-column ' >
     <div className='h-12 w-full flex pt-3 justify-center align-middle text-center bg-white '>
@@ -11,7 +11,7 @@ export default function Home() {
     
       <div className='p-2 mx-[5%]  flex rounded-3xl   w-[90%] bg-green-200 ' >
 
-        <Image src="/burger.jpg" width={120} height={100} className='rounded-3xl' />  
+        <Image alt="burger-image" src="/burger.jpg" width={120} height={100} className='rounded-3xl' />  
 
 
         <div className='p-2 mx-[5%] font-bold rounded-3xl  block w-[90%] bg-green-200 ' >
@@ -24,7 +24,7 @@ export default function Home() {
 
 
       <div className='p-2 mx-[5%] flex mt-10 rounded-3xl  w-[90%] bg-green-200 ' >
-      <Image src="/burger.jpg" width={100} height={100} className='rounded-3xl' />  
+      <Image alt="burger-image" src="/burger.jpg" width={100} height={100} className='rounded-3xl' />  
 
         <div className='p-2 mx-[5%] font-bold rounded-3xl  block w-[90%] bg-green-200 ' >
           Burger Siemano
@@ -35,7 +35,7 @@ export default function Home() {
       </div>
 
       <div className='p-2 mx-[5%] flex mt-10 rounded-3xl  w-[90%] bg-green-200 ' >
-      <Image src="/burger.jpg" width={100} height={100} className='rounded-3xl' />  
+      <Image alt="burger-image" src="/burger.jpg" width={100} height={100} className='rounded-3xl' />  
 
         <div className='p-2 mx-[5%] font-bold rounded-3xl  block w-[90%] bg-green-200 ' >
           Burger Siemano
