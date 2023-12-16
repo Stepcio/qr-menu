@@ -1,0 +1,44 @@
+[
+  {
+    "name": "Burger 1",
+    "ingredients": [
+        "bułka",
+        "mięso",
+        "ogórek",
+        "ser",
+        "sos autorski"
+    ],
+    "image": {
+      "src": "/images/burger.jpg",
+      "alt": "Burger 1 Image"
+    }
+  },
+  {
+    "name": "Burger 2",
+    "ingredients": [
+        "bułka",
+        "mięso",
+        "ogórek",
+        "ser",
+        "sos autorski"
+    ],
+    "image": {
+      "src": "/images/burger.jpg",
+      "alt": "Burger 2 Image"
+    }
+  },
+  {
+    "name": "Burger 3",
+    "ingredients": [
+        "bułka",
+        "mięso",
+        "ogórek",
+        "ser",
+        "sos autorski"
+    ],
+    "image": {
+      "src": "/images/burger.jpg",
+      "alt": "Burger 3 Image"
+    }
+  }
+]
