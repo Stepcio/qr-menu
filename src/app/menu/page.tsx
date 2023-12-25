@@ -1,13 +1,15 @@
 import MenuItem from '@/components/menu/menu-item'
-import menu from '@/db/menu.json'
+import prisma from '@/lib/prisma';
 
-export default function Page() {
+export default async function Page() {
+  const menuItems = await prisma.menuItem.findMany();
+
   return (
     <>
       
       <div className='flex flex-col gap-4'>
-        {menu.map((item, index) => 
-          <MenuItem key={index} title={item.name} ingredients={item.ingredients} image={item.image} />
+        {menuItems.map((item, index) => 
+          <MenuItem key={index} title={item.name} ingredients={item.ingredients} photo={item.photo} />
         )}
       </div>
     </>
