@@ -1,24 +1,44 @@
-import { PrismaClient } from '@prisma/client';
+const { PrismaClient } = require('@prisma/client')
 
 const prisma = new PrismaClient();
 
 async function main() {
-  const alice = await prisma.restaurant.create({
+  const restaurant = await prisma.restaurant.create({
     data: {
       name: 'Restauracja',
-      logo: '',
       addresses: [
         'Łabiszyńska 25'
       ],
     },
   });
 
-  await prisma.post.create({
+  const menu = await prisma.menu.create({
     data: {
-      title: 'First Post',
-      content: 'This is the first post.',
-      authorId: alice.id,
+      restaurantId: restaurant.id,
     },
+  });
+
+  const itemType = await prisma.itemType.create({
+    data: {
+      name: "Burgery"
+    },
+  });
+
+  await prisma.menuItem.createMany({
+    data: [
+      {
+        name: "Burger 2",
+        ingredients: ['bułka', 'mięso'],
+        menuId: menu.id,
+        typeId: itemType.id
+      },
+      {
+        name: "Burger 1",
+        ingredients: ['bułka', 'mięso'],
+        menuId: menu.id,
+        typeId: itemType.id
+      },
+    ]
   });
 }
 

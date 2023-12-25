@@ -30,11 +30,11 @@ model ItemType {
 
 model MenuItem {
   id          Int       @id @default(autoincrement())
-  menuId      Int
-  typeId      Int
   name        String
   photo       String?
   ingredients String[]  @default([])
+  menuId      Int
+  typeId      Int
   menu        Menu      @relation(fields: [menuId], references: [id])
   itemType    ItemType  @relation(fields: [typeId], references: [id])
 }
