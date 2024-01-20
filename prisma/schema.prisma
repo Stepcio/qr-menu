@@ -10,14 +10,16 @@ generator client {
 model Restaurant {
   id        Int      @id @default(autoincrement())
   name      String
+  url       String   @unique
   logo      String?
-  addresses String[] @default([])
+  locations String[] @default([])
   menus     Menu[]
 }
 
 model Menu {
   id           Int        @id @default(autoincrement())
   restaurantId Int
+  active       Boolean
   restaurant   Restaurant @relation(fields: [restaurantId], references: [id])
   menuItems    MenuItem[]
 }
