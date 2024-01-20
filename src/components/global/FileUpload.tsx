@@ -31,7 +31,7 @@ export const FileUpload = () => {
     const filename = data.file[0].name;
   
     const res = await fetch(`/api/presigned-url?file=${filename}`);
-  
+
     const { presignedUrl } = (await res.json()) as { presignedUrl: string };
   
     const fileUpload = await fetch(presignedUrl, {

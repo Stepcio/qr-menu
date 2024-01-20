@@ -1,21 +1,18 @@
-import Link from 'next/link'
+import Link from 'next/link';
 
 export default function Page() {
   return (
-    <div className='h-[100vh] w-full p-8 flex-column justify-center bg-gray-200'>
-      <Link href='/menu'>
-        <button className='p-2 mx-[5%] rounded-3xl block w-[90%] bg-green-200'>
-          Menu
+    <div className='mt-4 mx-auto flex flex-col justify-center gap-4'>
+      <Link href='/restaurants' className='mx-auto w-1/2'>
+        <button className='p-2 rounded-3xl bg-slate-800 w-full'>
+          Restauracje
         </button>
       </Link>
-
-      <button className='p-2 mx-[5%] rounded-3xl mt-10 block w-[90%] bg-green-200'>
-        zamów kelnera
-      </button>
-
-      <button className='p-2 mx-[5%] mt-10 rounded-3xl block w-[90%] bg-green-200'>
-        złóż zamówienie
-      </button>
+      <Link href='/restaurants/add' className='mx-auto w-1/2'>
+        <button className='p-2 rounded-3xl bg-slate-800 w-full'>
+          Dodaj restaurację
+        </button>
+      </Link>
     </div>
   )
 }
