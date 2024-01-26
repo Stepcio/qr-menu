@@ -1,6 +1,7 @@
 import prisma from '@/lib/prisma';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export const dynamicParams = true;
 
@@ -39,6 +40,9 @@ export default async function Page({ params }: Params) {
   return (
     <>
       <section>
+        <div className="relative w-full h-[320px]">
+          <Image src={restaurant.backgroundImage} alt={`${restaurant.name} background image`} fill/>
+        </div>
         <h1>{ restaurant.name }</h1>
 
         {restaurant.menus.length > 0 && (

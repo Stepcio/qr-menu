@@ -14,7 +14,7 @@ export default function Page() {
     <>
       <form action={formAction}>
         <input className="text-black" type="text" name="name" required/>
-        <input type="file" name="logo" id="" />
+        <input type="file" name="background-image" id="" />
         {fileUrl.length ? (
           <div className='rounded-md overflow-hidden'>
             <Image
@@ -28,7 +28,7 @@ export default function Page() {
         ) : null}
         <button type="submit">Submit</button>
       </form>
-      <div>{state.message}</div>
+      <div>{state?.message}</div>
     </>
   )
 }

@@ -1,9 +1,18 @@
-import { FileUpload } from "@/components/global/FileUpload";
+"use client";
 
-export default function Home() {
+import { testWebsockets } from "@/lib/actions";
+import { useFormState } from 'react-dom';
+
+export default function Page() {
+  const [state, formAction] = useFormState(testWebsockets, {message: ''});
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-24 bg-gray-100">
-      <FileUpload />
-    </main>
+    <>
+      <form action={formAction}>
+        <input className="text-black" type="text" name="message" required/>
+        <button type="submit">Submit</button>
+      </form>
+      <div>{state?.message}</div>
+    </>
   );
 }

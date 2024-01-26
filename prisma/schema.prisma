@@ -8,12 +8,13 @@ generator client {
 }
 
 model Restaurant {
-  id        Int      @id @default(autoincrement())
-  name      String
-  url       String   @unique
-  logo      String?
-  locations String[] @default([])
-  menus     Menu[]
+  id              Int      @id @default(autoincrement())
+  name            String
+  description     String
+  url             String   @unique
+  backgroundImage String
+  locations       String[] @default([])
+  menus           Menu[]
 }
 
 model Menu {
@@ -25,8 +26,8 @@ model Menu {
 }
 
 model ItemType {
-  id   Int        @id @default(autoincrement())
-  name String
+  id        Int        @id @default(autoincrement())
+  name      String
   menuItems MenuItem[]
 }
 
