@@ -1,4 +1,6 @@
 import OrdersList from "@/components/restaurants/OrdersList"
+import prisma from '@/lib/prisma';
+import { notFound } from 'next/navigation';
 
 type Params = {
   params: {
@@ -20,6 +22,10 @@ export default async function Page({ params }: Params) {
     }
   });
 
+  if (!restaurant) {
+    notFound();
+  }
+  
   const menuItems = await prisma.menuItem.findMany({
     where: {
       menuId: restaurant.menus[0].id
