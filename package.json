@@ -1,5 +1,5 @@
 {
-  "name": "restaurant-project",
+  "name": "qr-menu",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -14,6 +14,7 @@
     "@aws-sdk/s3-request-presigner": "^3.478.0",
     "@prisma/client": "^5.7.1",
     "aws-sdk": "^2.1525.0",
+    "framer-motion": "^11.0.3",
     "next": "14.0.4",
     "pusher": "^5.2.0",
     "pusher-js": "^8.4.0-rc2",

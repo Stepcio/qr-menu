@@ -1,7 +1,8 @@
 import prisma from '@/lib/prisma';
 import { notFound } from 'next/navigation';
-import Link from 'next/link';
 import Image from 'next/image';
+import ItemTypeSection from '@/components/restaurants/ItemTypeSection';
+import OrderPopup from '@/components/restaurants/OrderPopup';
 
 export const dynamicParams = true;
 
@@ -22,34 +23,51 @@ type Params = {
 export default async function Page({ params }: Params) {
   const restaurant = await prisma.restaurant.findUnique({
     where: {
-      url: params.restaurantUrl,
+      url: params.restaurantUrl
     },
     include: {
-      menus: {
+      menus: true
+    }
+  });
+  
+  if (!restaurant) {
+    notFound();
+  }
+  
+  const itemTypes = await prisma.itemType.findMany({
+    include: {
+      menuItems: {
         where: {
-          active: true
-        },
+          menuId: restaurant.menus[0].id
+        }
+      }
+    },
+    where: {
+      menuItems: {
+        some: {
+          menuId: restaurant.menus[0].id
+        }
       }
     }
   });
 
-  if (!restaurant) {
-    notFound();
-  }
-
   return (
     <>
       <section>
-        <div className="relative w-full h-[320px]">
-          <Image src={restaurant.backgroundImage} alt={`${restaurant.name} background image`} fill/>
+          <div className='relative w-full h-[260px]'>
+            <Image src={restaurant.backgroundImage} alt={`${restaurant.name} background image`} fill priority/>
+            <h1 className=''>{ restaurant.name }</h1>
+          </div>
+      </section>
+      <section className='mx-4'>
+        <div className='flex flex-col gap-4'>
+          {itemTypes.map((type) => (
+            <ItemTypeSection key={type.id} name={type.name} items={type.menuItems} />
+          ))}
         </div>
-        <h1>{ restaurant.name }</h1>
-
-        {restaurant.menus.length > 0 && (
-          <Link href={`/restaurants/${restaurant.url}/menu`}>
-            <button>Menu</button>
-          </Link>
-        )}
+      </section>
+      <section>
+        <OrderPopup />
       </section>
     </>
   )

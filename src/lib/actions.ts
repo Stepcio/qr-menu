@@ -65,10 +65,8 @@ export async function createRestaurant(prevState: any, formData: FormData) {
   }
 }
 
-export async function testWebsockets(prevState: any, formData: FormData){
-  await pusher.trigger('chat', 'chat-event', {
-    message: formData.get('message')
+export async function createOrder(order: number[]) {
+  await pusher.trigger('kitchen', 'order-added', {
+    order: order
   })
-
-  return {message: 'Success.'};
 }

@@ -1,0 +1,37 @@
+import OrdersList from "@/components/restaurants/OrdersList"
+
+type Params = {
+  params: {
+    restaurantUrl: string
+  }
+}
+
+export default async function Page({ params }: Params) {
+  const restaurant = await prisma.restaurant.findUnique({
+    where: {
+      url: params.restaurantUrl
+    },
+    include: {
+      menus: {
+        where: {
+          active: true
+        }
+      }
+    }
+  });
+
+  const menuItems = await prisma.menuItem.findMany({
+    where: {
+      menuId: restaurant.menus[0].id
+    }
+  });
+
+  return (
+    <>
+      <section className='mt-8'>
+          <h1>Zamówienia</h1>
+          <OrdersList menuItems={menuItems}/>
+      </section>
+    </>
+  )
+}
