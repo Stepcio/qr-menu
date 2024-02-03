@@ -16,7 +16,6 @@ const client = new S3Client({
 
 async function uploadImageToS3(image: File) {
   try { 
-    console.log(image)
     if(!validateFile(image)) return false;
     const imageBuffer = Buffer.from(await image.arrayBuffer());
 

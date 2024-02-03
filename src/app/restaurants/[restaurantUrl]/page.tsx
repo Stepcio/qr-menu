@@ -38,14 +38,14 @@ export default async function Page({ params }: Params) {
     include: {
       menuItems: {
         where: {
-          menuId: restaurant.menus[0].id
+          menuId: restaurant.menus[0]?.id
         }
       }
     },
     where: {
       menuItems: {
         some: {
-          menuId: restaurant.menus[0].id
+          menuId: restaurant.menus[0]?.id
         }
       }
     }
