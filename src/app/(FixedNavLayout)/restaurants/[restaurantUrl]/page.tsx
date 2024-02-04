@@ -59,7 +59,7 @@ export default async function Page({ params }: Params) {
             <h1 className='absolute bottom-0 left-0 ml-4 mb-4 text-3xl font-bold'>{ restaurant.name }</h1>
           </div>
       </section>
-      <section className='mx-4 mt-4'>
+      <section className='mx-4 mt-4 mb-24'>
         <div className='flex flex-col gap-4'>
           {itemTypes.map((type) => (
             <ItemTypeSection key={type.id} name={type.name} items={type.menuItems} />

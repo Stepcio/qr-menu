@@ -20,7 +20,7 @@ export default function Navbar({ fixed }: { fixed?: boolean }) {
 
   return (
     <nav className={
-      `${styles.navbar} ${fixed ? 'fixed' : 'sticky'} top-0 inset-x-0 h-[40px] flex justify-between items-center z-50 px-4` +
+      `${styles.navbar} ${fixed ? 'fixed' : 'sticky'} top-0 inset-x-0 h-[40px] flex justify-between items-center z-40 px-4` +
       (scrollY === 0 ? '' : ' bg-dark-teal/[.9]')
     }>
       <div>QR Menu</div>

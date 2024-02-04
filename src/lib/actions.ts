@@ -64,8 +64,8 @@ export async function createRestaurant(prevState: any, formData: FormData) {
   }
 }
 
-export async function createOrder(order: number[]) {
-  await pusher.trigger('kitchen', 'order-added', {
+export async function createOrder(order: { name?: string, items?: number[] }) {
+  await pusher.trigger('orders', 'order-added', {
     order: order
   })
 }

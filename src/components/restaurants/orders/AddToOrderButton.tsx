@@ -12,6 +12,9 @@ declare global {
 export default function AddToOrderButton({ itemId }: Params) {
   const addItemToOrder = () => {
     window.Order = window.Order || [];
+
+    if(window.Order.length > 2) return;
+
     window.Order.push(itemId)
     window.dispatchEvent(new CustomEvent('order-change'));
   };

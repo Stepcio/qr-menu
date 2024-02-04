@@ -34,8 +34,8 @@ export default async function Page({ params }: Params) {
 
   return (
     <>
-      <section className='mt-8'>
-          <h1>Zamówienia</h1>
+      <section className='mx-4 mt-4 mb-24'>
+          <h1 className='text-3xl mb-2'>Zamówienia</h1>
           {menuItems ? (
             <OrdersList menuItems={menuItems}/>
           ) : (
