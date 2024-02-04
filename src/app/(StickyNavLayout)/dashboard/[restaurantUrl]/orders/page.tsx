@@ -1,4 +1,4 @@
-import OrdersList from "@/components/restaurants/OrdersList"
+import OrdersList from "@/components/restaurants/orders/OrdersList"
 import prisma from '@/lib/prisma';
 import { notFound } from 'next/navigation';
 
@@ -28,7 +28,7 @@ export default async function Page({ params }: Params) {
   
   const menuItems = await prisma.menuItem.findMany({
     where: {
-      menuId: restaurant.menus[0].id
+      menuId: restaurant.menus[0]?.id
     }
   });
 
@@ -36,7 +36,11 @@ export default async function Page({ params }: Params) {
     <>
       <section className='mt-8'>
           <h1>Zamówienia</h1>
-          <OrdersList menuItems={menuItems}/>
+          {menuItems ? (
+            <OrdersList menuItems={menuItems}/>
+          ) : (
+            <div>Brak zamówień.</div>
+          )}
       </section>
     </>
   )

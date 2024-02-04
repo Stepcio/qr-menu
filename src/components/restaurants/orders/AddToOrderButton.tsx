@@ -1,4 +1,5 @@
 'use client';
+import { IoAdd } from "react-icons/io5";
 
 type Params = {
   itemId: number
@@ -17,7 +18,7 @@ export default function AddToOrderButton({ itemId }: Params) {
 
   return (
     <button onClick={addItemToOrder}>
-      Dodaj do zamówienia
+      <IoAdd className='h-[30px] w-[30px]' />
     </button>
   );
 }

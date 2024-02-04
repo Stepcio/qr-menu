@@ -1,9 +1,8 @@
 'use client';
-
 import { useState, useEffect } from "react";
 import Pusher from "pusher-js";
 import { MenuItem as MenuItemType } from "@prisma/client";
-import MenuItem from "./MenuItem";
+import MenuItem from "../items/MenuItem";
 
 type Params = {
   menuItems: MenuItemType[]

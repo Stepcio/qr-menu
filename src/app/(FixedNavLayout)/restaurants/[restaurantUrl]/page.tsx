@@ -1,8 +1,8 @@
 import prisma from '@/lib/prisma';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
-import ItemTypeSection from '@/components/restaurants/ItemTypeSection';
-import OrderPopup from '@/components/restaurants/OrderPopup';
+import ItemTypeSection from '@/components/restaurants/items/ItemTypeSection';
+import OrderPopup from '@/components/restaurants/orders/OrderPopup';
 
 export const dynamicParams = true;
 
@@ -54,12 +54,12 @@ export default async function Page({ params }: Params) {
   return (
     <>
       <section>
-          <div className='relative w-full h-[260px]'>
-            <Image src={restaurant.backgroundImage} alt={`${restaurant.name} background image`} fill priority/>
-            <h1 className=''>{ restaurant.name }</h1>
+          <div className='relative w-full h-[220px] md:h-[260px]'>
+            <Image src={restaurant.backgroundImage} className='object-cover brightness-[0.6]' alt={`${restaurant.name} background image`} fill priority/>
+            <h1 className='absolute bottom-0 left-0 ml-4 mb-4 text-3xl font-bold'>{ restaurant.name }</h1>
           </div>
       </section>
-      <section className='mx-4'>
+      <section className='mx-4 mt-4'>
         <div className='flex flex-col gap-4'>
           {itemTypes.map((type) => (
             <ItemTypeSection key={type.id} name={type.name} items={type.menuItems} />

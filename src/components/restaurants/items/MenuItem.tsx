@@ -1,6 +1,6 @@
 import Image from "next/image";
 import type { MenuItem } from "@prisma/client";
-import AddToOrderButton from "./AddToOrderButton";
+import AddToOrderButton from "../orders/AddToOrderButton";
 
 type Params = {
   item: MenuItem
@@ -19,15 +19,15 @@ export default function MenuItem({ item }: Params) {
             <div></div>
           )}
         </div>
-        <div className='p-2 mx-[5%] font-bold rounded-3xl'>
+        <div className='w-[55%] p-2 mx-[5%] font-bold rounded-3xl'>
           {name}
-          <div className='font-light rounded-3xl'>
+          <div className='font-light overflow-hidden text-ellipsis whitespace-nowrap'>
             {ingredients ? (
-              ingredients
+              ingredients.join(', ')
             ) : null}
           </div>
         </div>
-        <div>
+        <div className='w-[10%] ml-auto my-auto mr-2'>
           <AddToOrderButton itemId={item.id}/>
         </div>
       </div>
