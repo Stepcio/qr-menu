@@ -6,6 +6,14 @@ const nextConfig = {
           protocol: "https",
           hostname: "**.amazonaws.com",
         },
+        {
+          protocol: "https",
+          hostname: "sawepecomcdn.blob.core.windows.net",
+        },
+        {
+          protocol: "https",
+          hostname: "cdn.galleries.smcloud.net",
+        },
       ],
     },
   };

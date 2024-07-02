@@ -26,7 +26,7 @@ export default function OrdersList({ menuItems }: Params) {
       const items = data.order.items?.map((itemId: number) => {
         return menuItems.find(i => i.id === itemId);
       })
-      console.log(data.order)
+
       setOrders(orders => [...orders, {
         name: data.order.name,
         items: items,
